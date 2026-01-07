@@ -1,6 +1,8 @@
-import { Bell, Clock, Users } from "lucide-react";
+import { Bell, Clock, Users, Home } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   alertCount?: number;
@@ -8,6 +10,7 @@ interface HeaderProps {
 
 const Header = ({ alertCount = 3 }: HeaderProps) => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const navigate = useNavigate();
   
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -16,14 +19,24 @@ const Header = ({ alertCount = 3 }: HeaderProps) => {
 
   return (
     <header className="h-16 border-b border-border/50 bg-card/50 backdrop-blur-xl flex items-center justify-between px-6">
-      {/* Left - Status */}
-      <div className="flex items-center gap-6">
+      {/* Left - Back to Landing & Status */}
+      <div className="flex items-center gap-4">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={() => navigate("/")}
+          className="gap-2"
+        >
+          <Home className="w-4 h-4" />
+          <span className="hidden sm:inline">Back to Home</span>
+        </Button>
+        <div className="h-4 w-px bg-border" />
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-green-500 pulse-live" />
           <span className="text-sm font-medium text-foreground">Live Monitoring</span>
         </div>
-        <div className="h-4 w-px bg-border" />
-        <div className="flex items-center gap-2 text-muted-foreground">
+        <div className="h-4 w-px bg-border hidden md:block" />
+        <div className="hidden md:flex items-center gap-2 text-muted-foreground">
           <Clock className="w-4 h-4" />
           <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
         </div>
