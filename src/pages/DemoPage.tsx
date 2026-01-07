@@ -52,8 +52,8 @@ const DemoPage = () => {
   };
 
   const useSampleVideo = () => {
-    // Using a sample surveillance-style video
-    setVideoSrc("https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4");
+    // Using a warehouse workers surveillance-style video from Pexels
+    setVideoSrc("https://videos.pexels.com/video-files/6169061/6169061-uhd_2560_1440_25fps.mp4");
     setIsPlaying(false);
   };
 
