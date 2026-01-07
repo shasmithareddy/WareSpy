@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Activity, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Effects */}
@@ -53,12 +56,12 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group" onClick={() => navigate("/demo")}>
               Request a Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="heroOutline" size="xl">
-              Watch Video
+            <Button variant="heroOutline" size="xl" onClick={() => navigate("/demo")}>
+              Try It Now
             </Button>
           </motion.div>
 

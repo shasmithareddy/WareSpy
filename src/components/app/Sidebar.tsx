@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { to: "/", icon: LayoutDashboard, label: "Dashboard" },
+  { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { to: "/zones", icon: Map, label: "Zone Monitor" },
   { to: "/heatmap", icon: Flame, label: "Heatmaps" },
   { to: "/alerts", icon: AlertTriangle, label: "Safety Alerts" },
