@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Background */}
@@ -40,7 +43,7 @@ const CTASection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto"
             >
-              Join forward-thinking operations teams using privacy-first intelligence
+              Join forward-thinking operations teams using surveillance intelligence
               to improve safety and efficiency.
             </motion.p>
 
@@ -51,13 +54,13 @@ const CTASection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button variant="hero" size="xl" className="group">
+              <Button variant="hero" size="xl" className="group" onClick={() => navigate("/demo")}>
                 Schedule a Demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="glass" size="xl" className="group">
+              <Button variant="glass" size="xl" className="group" onClick={() => navigate("/demo")}>
                 <Play className="w-5 h-5" />
-                Watch Product Tour
+                Try It Now
               </Button>
             </motion.div>
 
