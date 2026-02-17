@@ -21,7 +21,6 @@ const Navbar = () => {
   const navLinks = [
     { name: "How It Works", href: "#how-it-works" },
     { name: "Privacy", href: "#privacy" },
-    { name: "Dashboard", href: "#dashboard" },
   ];
 
   useEffect(() => {
@@ -55,7 +54,17 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Features Dropdown */}
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium"
+              >
+                {link.name}
+              </a>
+            ))}
+
+            {/* Features Dropdown - at the end */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setFeaturesOpen(!featuresOpen)}
@@ -71,7 +80,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-3 w-80 glass-card rounded-xl border border-border/50 shadow-xl overflow-hidden"
+                    className="absolute top-full right-0 mt-3 w-80 glass-card rounded-xl border border-border/50 shadow-xl overflow-hidden"
                   >
                     <div className="p-2">
                       {featureItems.map((item) => (
@@ -91,16 +100,6 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </div>
-
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
           </div>
 
           {/* CTA Buttons */}
