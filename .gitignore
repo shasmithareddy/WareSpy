@@ -22,3 +22,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# --------------------
+# Python Backend
+# --------------------
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# YOLO model weights
+*.pt
+
+# Video files
+*.mp4
+
+# Python logs
+*.log
